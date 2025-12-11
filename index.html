@@ -1,37 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surya Super Specialty Hospital | Comprehensive & Compassionate Medical Care</title>
-    <meta name="description" content="Surya Super Specialty Hospital is a leading multi-specialty hospital in Sahibganj, Jharkhand, dedicated to providing advanced medical care with a patient-first approach. Find expert doctors, explore our services, and book your appointment today.">
-    <link rel="canonical" href="https://suryahospitalsahibganj.com/">
     
-    <!-- New SVG Favicon -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FFC107'/%3E%3Cpath d='M50,25 v50 M25,50 h50' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
+    <!-- 1. SEO: Primary Meta Tags -->
+    <title>Surya Super Speciality Hospital | Best Hospital in Sahibganj</title>
+    <meta name="description" content="Surya Super Speciality Hospital, Sahibganj. 110 Beds, 24/7 Emergency, Smart ICU, and expert specialists in Surgery, Urology & IVF. Excellence in Healthcare.">
+    <meta name="keywords" content="Hospital in Sahibganj, Best Doctor Sahibganj, Surgery, ICU, IVF Center, Orthopedic, Gynaecologist Jharkhand, Emergency Care">
+    <meta name="author" content="Surya Super Speciality Hospital">
+    <link rel="canonical" href="https://suryahospitalsahibganj.com/">
 
-    <!-- SEO & Social Sharing Meta Tags -->
+    <!-- 2. SEO: Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://suryahospitalsahibganj.com/">
-    <meta property="og:title" content="Surya Super Specialty Hospital | Comprehensive & Compassionate Medical Care">
-    <meta property="og:description" content="A leading multi-specialty hospital dedicated to providing advanced medical care with a patient-first approach.">
+    <meta property="og:title" content="Surya Super Speciality Hospital | Sahibganj's Finest Healthcare">
+    <meta property="og:description" content="110 Beds • 24/7 Trauma Care • Expert Specialists. Bridging the gap between world-class medicine and community wellbeing.">
     <meta property="og:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://suryahospitalsahibganj.com/">
-    <meta property="twitter:title" content="Surya Super Specialty Hospital | Comprehensive & Compassionate Medical Care">
-    <meta property="twitter:description" content="A leading multi-specialty hospital dedicated to providing advanced medical care with a patient-first approach.">
-    <meta property="twitter:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
+    <meta property="og:locale" content="en_IN">
 
-    <!-- Schema.org Structured Data with Aggregate Reviews -->
+    <!-- 3. SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://suryahospitalsahibganj.com/">
+    <meta name="twitter:title" content="Surya Super Speciality Hospital">
+    <meta name="twitter:description" content="Advanced medical care in Sahibganj. 24/7 Emergency & Multi-speciality centre.">
+    <meta name="twitter:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
+
+    <!-- 4. Performance: Favicon & Preloads -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9500'/%3E%3Cpath d='M50,25 v50 M25,50 h50' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preload" as="image" href="./assets/images/surya-hospital.png" fetchpriority="high">
+
+    <!-- 5. CRITICAL: FOUC (Flash of Unstyled Content) Fix -->
+    <!-- This script runs before the body renders to apply the correct theme immediately -->
+    <script>
+        (function() {
+            try {
+                const localTheme = localStorage.getItem('theme');
+                const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && sysTheme)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- 6. Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons: 'display=swap' added for performance -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" /></noscript>
+
+    <!-- 7. Schema.org JSON-LD (Local Business Rich Snippet) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Hospital",
-      "name": "Surya Super Specialty Hospital",
+      "name": "Surya Super Speciality Hospital",
       "image": "https://suryahospitalsahibganj.com/assets/images/surya-hospital.png",
       "url": "https://suryahospitalsahibganj.com/",
-      "telephone": "+917634911561",
-      "description": "Surya Super Specialty Hospital is a leading multi-specialty hospital in Sahibganj, Jharkhand, dedicated to providing advanced medical care with a patient-first approach.",
+      "telephone": "+919264197984",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "S.B, JN Roy Rd",
@@ -40,256 +71,276 @@
         "postalCode": "816109",
         "addressCountry": "IN"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.6",
-        "reviewCount": "598"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2461",
+        "longitude": "87.6289"
       },
-      "sameAs": [
-        "https://facebook.com/your-hospital-page",
-        "https://twitter.com/your-hospital-page"
-      ],
-      "openingHours": "Mo-Su 00:00-24:00",
-       "department": [
-        { "@type": "MedicalClinic", "name": "Cardiology" },
-        { "@type": "MedicalClinic", "name": "Orthopedics" },
-        { "@type": "MedicalClinic", "name": "Gynaecology" },
-        { "@type": "MedicalClinic", "name": "Urology" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Sahibganj"
+      },
+      "hasMap": "https://goo.gl/maps/YourActualMapLink",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "department": [
+        { "@type": "EmergencyService", "name": "24x7 Emergency & Trauma" },
         { "@type": "MedicalClinic", "name": "General Surgery" },
-        { "@type": "MedicalClinic", "name": "Paediatrics" }
-      ]
+        { "@type": "MedicalClinic", "name": "Urology" },
+        { "@type": "MedicalClinic", "name": "Gynaecology & IVF" },
+        { "@type": "MedicalClinic", "name": "Orthopaedics" }
+      ],
+      "availableService": {
+        "@type": "MedicalProcedure",
+        "name": "Dialysis, CT Scan, NICU, Smart ICU"
+      }
     }
     </script>
-
-    <!-- Performance: Preconnect to required origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Font Stylesheets (Loaded asynchronously for performance) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" media="print" onload="this.media='all'"/>
-    
-    <!-- Link to your external stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    
 </head>
-<body>
+<body class="mac-os-feel">
 
-    <header class="header">
-        <div class="container header__container">
-            <a href="#hero" class="header__logo">
-                <!-- New SVG Logo -->
-                <svg class="header__logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <title>Surya Super Specialty Hospital Logo</title>
-                    <circle cx="50" cy="50" r="48" fill="currentColor"/>
-                    <path d="M50 25 V 75 M 25 50 H 75" stroke="white" stroke-width="12" stroke-linecap="round"/>
-                    <g transform="translate(50,50)">
-                        <path d="M0 -42 L 0 -32" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M0 42 L 0 32" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M-42 0 L -32 0" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M42 0 L 32 0" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M-29.7 -29.7 L -22.6 -22.6" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M29.7 29.7 L 22.6 22.6" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M-29.7 29.7 L -22.6 22.6" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                        <path d="M29.7 -29.7 L 22.6 -22.6" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                    </g>
-                </svg>
-                <span class="header__logo-text">Surya Hospital</span>
-            </a>
+    <!-- HEADER -->
+    <header class="glass-header">
+        <div class="header-inner">
+            
+            <!-- Logo -->
+            <div class="header-start">
+                <a href="index.html" class="logo-group" aria-label="Surya Hospital Home">
+                    <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+                        <circle cx="50" cy="50" r="48" fill="var(--primary)"/>
+                        <path d="M50 25 V 75 M 25 50 H 75" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Surya<span class="logo-highlight">Hospital</span></span>
+                </a>
+            </div>
 
-            <nav class="header__nav" id="primary-navigation">
-                <ul class="header__nav-list">
-                    <li><a href="#doctors" class="header__nav-link">Find a Doctor</a></li>
-                    <li><a href="#services" class="header__nav-link">Services</a></li>
-                    <li><a href="#patients" class="header__nav-link">For Patients</a></li>
-                    <li><a href="#about" class="header__nav-link">About Us</a></li>
-                    <li><a href="#contact" class="header__nav-link">Contact</a></li>
+            <!-- Nav (Desktop) -->
+            <nav class="header-center" id="desktop-nav">
+                <ul class="nav-pills">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Specialists</a></li>
+                    <li><a href="ivf-myths-facts.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
-            <div class="header__actions">
-                <a href="#appointment" class="button-primary">Book Appointment</a>
-                <button class="header__mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle Navigation Menu">
-                    <span class="sr-only">Menu</span>
-                    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+            <!-- Actions -->
+            <div class="header-end">
+                <button class="icon-btn tool-btn" aria-label="Switch to Hindi" id="lang-toggle">
+                    <span class="material-symbols-rounded" aria-hidden="true">translate</span>
+                    <span class="lang-code">HI</span>
+                </button>
+
+                <button class="icon-btn tool-btn" aria-label="Toggle Dark Mode" id="theme-toggle">
+                    <span class="material-symbols-rounded theme-icon-light">light_mode</span>
+                    <span class="material-symbols-rounded theme-icon-dark" style="display:none;">dark_mode</span>
+                </button>
+
+                <a href="tel:06436358007" class="btn-glass-emergency" aria-label="Call Emergency">
+                    <span class="material-symbols-rounded pulse" aria-hidden="true">emergency</span>
+                    <span class="desktop-only">06436-358007</span>
+                </a>
+
+                <button class="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-close" aria-label="Close Menu">&times;</button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Find a Specialist</a></li>
+            <li><a href="ivf-myths-facts.html">Health Blog</a></li>
+            <li><a href="contact.html">Contact & Map</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <a href="tel:06436358007" class="btn-primary full-width">Call Emergency</a>
+        </div>
+    </nav>
+
     <main>
 
-        <section id="hero" class="hero section-padding">
-            <div class="container hero__container">
-                <div class="hero__text-content">
-                    <h1 class="hero__title">Healthcare Centered Around You.</h1>
-                    <p class="hero__subtitle">Welcome to Surya Super Specialty Hospital, where our commitment is to provide exceptional, personalized care for you and your family. Your well-being is our highest priority.</p>
-                    <div class="hero__cta-group">
-                        <a href="#doctors" class="button-primary button--large">Find a Doctor</a>
-                        <a href="#services" class="button-secondary button--large">Explore Services</a>
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="badge-capsule">
+                        <span class="badge-dot"></span> Welcome to Sahibganj’s Finest
+                    </span>
+                    <h1 class="hero-title">Redefining <span class="text-gradient">Excellence</span> in Healthcare.</h1>
+                    <p class="hero-desc">
+                        Advanced medical care where modern technology meets compassionate healing. 
+                        <strong>110 Beds • 24/7 Trauma Care • Expert Specialists.</strong>
+                    </p>
+                    <div class="hero-actions">
+                        <a href="doctors.html" class="btn-primary">Find a Doctor</a>
+                        <a href="departments.html" class="btn-secondary">Explore Services</a>
                     </div>
                 </div>
-                <div class="hero__image-wrapper">
-                    <img src="./assets/images/surya-hospital.png" alt="The modern and welcoming exterior of Surya Super Specialty Hospital building." class="hero__image" loading="eager" fetchpriority="high" width="600" height="400">
-                </div>
-            </div>
-        </section>
-
-        <!-- Other sections remain the same -->
-        <section id="quick-access" class="quick-access">
-            <div class="container">
-                <ul class="quick-access__container">
-                    <li>
-                        <a href="/emergency" class="quick-access__card">
-                            <span class="material-symbols-outlined">emergency</span>
-                            <h3 class="quick-access__title">Emergency Care</h3>
-                            <p>24/7 Emergency & Trauma Center</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#doctors" class="quick-access__card">
-                            <span class="material-symbols-outlined">person_search</span>
-                            <h3 class="quick-access__title">Find a Doctor</h3>
-                            <p>Search our expert specialists</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#appointment" class="quick-access__card">
-                            <span class="material-symbols-outlined">edit_calendar</span>
-                            <h3 class="quick-access__title">Book Appointment</h3>
-                            <p>Schedule your visit online</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/portal" class="quick-access__card">
-                            <span class="material-symbols-outlined">person</span>
-                            <h3 class="quick-access__title">Patient Portal</h3>
-                            <p>Access your medical records</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="about" class="about section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">A New Standard of Healthcare</h2>
-                    <p class="section-subtitle">We combine state-of-the-art technology with a philosophy of compassionate, patient-centered care.</p>
-                </div>
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <span class="material-symbols-outlined feature-card__icon">science</span>
-                        <h3 class="feature-card__title">Advanced Technology</h3>
-                        <p>Utilizing the latest in medical technology for more accurate diagnoses and effective treatments.</p>
-                    </article>
-                    <article class="feature-card">
-                        <span class="material-symbols-outlined feature-card__icon">groups</span>
-                        <h3 class="feature-card__title">Expert Medical Team</h3>
-                        <p>Our team consists of board-certified specialists and dedicated staff committed to your health.</p>
-                    </article>
-                    <article class="feature-card">
-                        <span class="material-symbols-outlined feature-card__icon">verified_user</span>
-                        <h3 class="feature-card__title">Patient-First Philosophy</h3>
-                        <p>Your comfort, well-being, and understanding are at the core of every decision we make.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        
-        <section id="doctors" class="doctors section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Meet Our Medical Experts</h2>
-                    <p class="section-subtitle">Our renowned specialists are here to provide you with the best possible care.</p>
-                </div>
-                <ul class="doctors-grid">
-                    <li class="doctor-card">
-                        <!-- Placeholder Icon for Doctor -->
-                        <div class="doctor-card__placeholder">
-                            <span class="material-symbols-outlined">person</span>
+                <div class="hero-visual">
+                    <div class="image-card-glass">
+                        <!-- High Priority fetch for LCP (Largest Contentful Paint) optimization -->
+                        <img src="./assets/images/surya-hospital.png" alt="Surya Hospital Building Exterior" width="600" height="400" fetchpriority="high">
+                        <div class="glass-overlay-card">
+                            <span class="material-symbols-rounded">verified_user</span>
+                            <div>
+                                <strong>Trust & Care</strong>
+                                <small>Patient First Philosophy</small>
+                            </div>
                         </div>
-                        <h3 class="doctor-card__name">Dr. Anjali Gupta</h3>
-                        <p class="doctor-card__specialty">Chief of Cardiology</p>
-                        <a href="/doctors/anjali-gupta" class="button-secondary">View Profile</a>
-                    </li>
-                    <li class="doctor-card">
-                        <!-- Placeholder Icon for Doctor -->
-                        <div class="doctor-card__placeholder">
-                            <span class="material-symbols-outlined">person</span>
-                        </div>
-                        <h3 class="doctor-card__name">Dr. Rohan Singh</h3>
-                        <p class="doctor-card__specialty">Head of Orthopedics</p>
-                        <a href="/doctors/rohan-singh" class="button-secondary">View Profile</a>
-                    </li>
-                    <li class="doctor-card">
-                        <!-- Placeholder Icon for Doctor -->
-                        <div class="doctor-card__placeholder">
-                            <span class="material-symbols-outlined">person</span>
-                        </div>
-                        <h3 class="doctor-card__name">Dr. Priya Patel</h3>
-                        <p class="doctor-card__specialty">Lead Pediatrician</p>
-                        <a href="/doctors/priya-patel" class="button-secondary">View Profile</a>
-                    </li>
-                </ul>
-                <div class="section-footer">
-                    <a href="/doctors" class="button-primary">Browse All Doctors</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Stories From Our Community</h2>
-                </div>
-                <ul class="testimonial-grid">
-                    <li>
-                        <blockquote class="testimonial-card">
-                            <p class="testimonial-card__quote">"The entire team at Surya Super Specialty Hospital was incredibly skilled and compassionate. I felt safe and cared for throughout my entire stay. Truly the best hospital in the region."</p>
-                            <cite class="testimonial-card__author">— Ujjwal K.</cite>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote class="testimonial-card">
-                            <p class="testimonial-card__quote">"My mother's surgery was flawless. The hospital's cleanliness, professionalism, and clear communication gave us complete peace of mind during a stressful time."</p>
-                            <cite class="testimonial-card__author">— Neelesh A.</cite>
-                        </blockquote>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section-padding">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-details">
-                        <h2 class="section-title">Ready to Take the Next Step?</h2>
-                        <p class="section-subtitle contact-subtitle">We are ready to assist you. Reach out for appointments, inquiries, or visit us at our state-of-the-art facility.</p>
-                        <ul class="contact-details__list">
-                            <li><span class="material-symbols-outlined">location_on</span> S.B, JN Roy Rd, Sahibganj, Jharkhand 816109</li>
-                            <li><span class="material-symbols-outlined">call</span> <a href="tel:+917634911561">+91 76349 11561</a> (Appointments)</li>
-                            <li><span class="material-symbols-outlined">emergency</span> <a href="tel:102">102</a> (Emergency Services)</li>
-                        </ul>
-                         <a href="#appointment" class="button-primary button--large">Book an Appointment Online</a>
                     </div>
-                    <div class="contact-map">
-                        <!-- New, Correct Google Maps Embed -->
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.838421443981!2d87.6288862153835!3d25.24613508392211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fa98b97048347d%3A0xb87e74d0001118c1!2sSURYA%20SUPER%20SPECIALITY%20HOSPITAL!5e0!3m2!1sen!2sin!4v1668523038921!5m2!1sen!2sin" 
-                            width="600" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Location of Surya Super Specialty Hospital on Google Maps">
-                        </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS STRIP -->
+        <section class="stats-strip">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <span class="material-symbols-rounded stat-icon">ambulance</span>
+                    <div class="stat-text">
+                        <small>Emergency</small>
+                        <strong>24x7 Open</strong>
                     </div>
+                </div>
+                <div class="stat-item">
+                    <span class="material-symbols-rounded stat-icon">ward</span>
+                    <div class="stat-text">
+                        <small>Capacity</small>
+                        <strong>110 Beds</strong>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="material-symbols-rounded stat-icon">monitor_heart</span>
+                    <div class="stat-text">
+                        <small>Facilities</small>
+                        <strong>Smart ICU</strong>
+                    </div>
+                </div>
+                <div class="stat-item highlight">
+                    <span class="material-symbols-rounded stat-icon">call</span>
+                    <div class="stat-text">
+                        <small>Helpline</small>
+                        <strong>92641 97984</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section padding-y" id="about">
+            <div class="container text-center max-w-lg">
+                <h2 class="section-heading">Compassion Meets Technology</h2>
+                <p class="section-sub">
+                    Our goal is to make quality, ethical, and technologically advanced healthcare accessible to every individual in Sahibganj and neighbouring regions.
+                </p>
+                <div class="pill-grid">
+                    <span class="pill">Ethical Care</span>
+                    <span class="pill">Transparent Billing</span>
+                    <span class="pill">Evidence Based</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPARTMENTS -->
+        <section class="section padding-y bg-subtle" id="departments">
+            <div class="container">
+                <div class="section-header-flex">
+                    <div>
+                        <h2 class="section-heading">Centres of Excellence</h2>
+                        <p class="section-sub">Comprehensive multi-speciality services.</p>
+                    </div>
+                    <a href="departments.html" class="link-arrow">View All <span class="material-symbols-rounded">arrow_forward</span></a>
+                </div>
+
+                <div class="bento-grid">
+                    <a href="departments.html#surgery" class="bento-card large">
+                        <div class="bento-icon"><span class="material-symbols-rounded">medical_services</span></div>
+                        <h3>General Surgery</h3>
+                        <p>Advanced open & laparoscopic surgeries.</p>
+                    </a>
+                    
+                    <a href="departments.html#urology" class="bento-card">
+                        <div class="bento-icon"><span class="material-symbols-rounded">water_drop</span></div>
+                        <h3>Urology</h3>
+                    </a>
+                    <a href="departments.html#obgyn" class="bento-card">
+                        <div class="bento-icon"><span class="material-symbols-rounded">female</span></div>
+                        <h3>ObGyn & IVF</h3>
+                    </a>
+                    <a href="departments.html#ortho" class="bento-card">
+                        <div class="bento-icon"><span class="material-symbols-rounded">accessibility_new</span></div>
+                        <h3>Orthopaedics</h3>
+                    </a>
+                    <a href="departments.html#icu" class="bento-card">
+                        <div class="bento-icon"><span class="material-symbols-rounded">ecg_heart</span></div>
+                        <h3>Smart ICU</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCTORS -->
+        <section class="section padding-y" id="doctors">
+            <div class="container">
+                <div class="section-header-flex">
+                    <h2 class="section-heading">Our Leadership</h2>
+                    <a href="doctors.html" class="link-arrow">Meet the Team <span class="material-symbols-rounded">arrow_forward</span></a>
+                </div>
+                
+                <div class="doctor-scroll-snap">
+                    <div class="doctor-profile-card">
+                        <div class="doc-avatar">
+                            <span class="material-symbols-rounded">person</span>
+                        </div>
+                        <h3>Dr. Vijay Kumar</h3>
+                        <p class="doc-role">Director & Surgeon</p>
+                        <p class="doc-qual">MS, DA, FCGP, FAIS</p>
+                    </div>
+                    <div class="doctor-profile-card">
+                        <div class="doc-avatar">
+                            <span class="material-symbols-rounded">person</span>
+                        </div>
+                        <h3>Dr. Sumit Kumar</h3>
+                        <p class="doc-role">Urologist</p>
+                        <p class="doc-qual">MS, MCh (Urology)</p>
+                    </div>
+                    <div class="doctor-profile-card">
+                        <div class="doc-avatar">
+                            <span class="material-symbols-rounded">person_apron</span>
+                        </div>
+                        <h3>Dr. Khushboo Priya</h3>
+                        <p class="doc-role">Gynaecologist</p>
+                        <p class="doc-qual">MBBS, MS (ObGyn)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container cta-inner">
+                <h2>Bridging the gap between world-class medicine and community wellbeing.</h2>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white">Contact Us</a>
+                    <a href="tel:06436358007" class="btn-outline-white">Emergency Call</a>
                 </div>
             </div>
         </section>
@@ -297,60 +348,28 @@
     </main>
 
     <footer class="footer">
-        <div class="container footer__container">
-            <div class="footer__col footer__col--about">
-                <a href="#" class="footer__logo">Surya Super Specialty Hospital</a>
-                <p class="footer__about-text">Providing exceptional medical care with compassion and expertise. Your health is our commitment.</p>
-                <div class="footer__socials">
-                    <!-- IMPORTANT: Replace '#' with your actual social media URLs -->
-                    <a href="#" aria-label="Follow us on Facebook">
-                        <span class="icon-facebook" aria-hidden="true">FB</span>
-                    </a>
-                    <a href="#" aria-label="Follow us on Twitter">
-                        <span class="icon-twitter" aria-hidden="true">TW</span>
-                    </a>
-                    <a href="#" aria-label="Follow us on LinkedIn">
-                        <span class="icon-linkedin" aria-hidden="true">IN</span>
-                    </a>
-                </div>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <strong class="footer-logo">Surya Hospital</strong>
+                <p>S.B, JN Roy Rd, Sahibganj, Jharkhand 816109</p>
             </div>
-            <div class="footer__col">
-                <h3 class="footer__col-title">Quick Links</h3>
-                <ul class="footer__list">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#doctors">Find a Doctor</a></li>
-                    <li><a href="/blog">News & Blog</a></li>
-                </ul>
+            <div class="footer-links">
+                <a href="doctors.html">Doctors</a>
+                <a href="departments.html">Departments</a>
+                <a href="ivf-myths-facts.html" style="color: var(--primary);">Health Blog</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <div class="footer__col">
-                <h3 class="footer__col-title">For Patients</h3>
-                <ul class="footer__list">
-                    <li><a href="/portal">Patient Portal</a></li>
-                    <li><a href="#appointment">Book Appointment</a></li>
-                    <li><a href="/billing">Billing & Insurance</a></li>
-                    <li><a href="/visitors">Visitor Information</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <h3 class="footer__col-title">Contact Us</h3>
-                <ul class="footer__list footer__list--contact">
-                    <li>S.B, JN Roy Rd, Sahibganj, Jharkhand 816109</li>
-                    <li><a href="tel:+917634911561">+91 76349 11561</a></li>
-                    <li><a href="mailto:info@suryahospitalsahibganj.com">info@suryahospitalsahibganj.com</a></li>
-                </ul>
+            <div class="footer-contact">
+                <a href="tel:06436358007">06436-358007</a>
+                <a href="mailto:info@suryahospitalsahibganj.com">info@suryahospitalsahibganj.com</a>
             </div>
         </div>
-        <div class="footer__bottom-bar">
-            <div class="container">
-                <p>&copy; 2025 Surya Super Specialty Hospital. All Rights Reserved.</p>
-                <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a></p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Surya Super Speciality Hospital. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- IMPORTANT: Make sure you have a 'script.js' file containing the provided JavaScript -->
+    <!-- Scripts -->
     <script src="script.js" defer></script>
-
 </body>
 </html>

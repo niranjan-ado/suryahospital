@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Contact Us | Surya Super Speciality Hospital Sahibganj</title>
+    <meta name="description" content="Contact Surya Hospital Sahibganj. 24/7 Emergency Number: 06436-358007. Book appointments, find our location on Google Maps, or send an inquiry.">
+    <meta name="keywords" content="Surya Hospital Phone Number, Ambulance Number Sahibganj, Hospital Address, Appointment Booking">
+    <link rel="canonical" href="https://suryahospitalsahibganj.com/contact.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Get in Touch | Surya Hospital">
+    <meta property="og:description" content="We are here for you 24/7. Call our Emergency Hotline or visit us at JN Roy Rd, Sahibganj.">
+    <meta property="og:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
+
+    <!-- Favicon & Styles -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9500'/%3E%3Cpath d='M50,25 v50 M25,50 h50' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+
+    <!-- FOUC Fix -->
+    <script>
+        (function() {
+            try {
+                const localTheme = localStorage.getItem('theme');
+                const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && sysTheme)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Page Specific Styles -->
+    <style>
+        .page-header {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-surface-secondary) 0%, var(--bg-body) 100%);
+        }
+
+        /* Contact Cards Grid */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: 0.3s ease;
+        }
+        .contact-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .icon-circle {
+            width: 64px; height: 64px;
+            background: var(--bg-surface-secondary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+        }
+        .icon-circle span { font-size: 32px; }
+        
+        .contact-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .contact-card p, .contact-card a { font-size: 1rem; color: var(--text-secondary); display: block; }
+        .contact-card a:hover { color: var(--primary); text-decoration: underline; }
+        
+        .contact-card.emergency { border-color: rgba(255, 59, 48, 0.3); background: rgba(255, 59, 48, 0.02); }
+        .contact-card.emergency .icon-circle { background: rgba(255, 59, 48, 0.1); color: #FF3B30; }
+        .contact-card.emergency h3 { color: #FF3B30; }
+
+        /* Map & Form Split */
+        .contact-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0; /* Flush design */
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: 0;
+            display: block;
+        }
+
+        .form-container {
+            padding: 3rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface-secondary);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: 0.2s ease;
+        }
+        .form-input:focus { outline: none; border-color: var(--primary); background: var(--bg-surface); }
+        textarea.form-input { resize: vertical; min-height: 120px; }
+
+        @media (max-width: 768px) {
+            .contact-split { grid-template-columns: 1fr; }
+            .map-container iframe { min-height: 300px; }
+            .form-container { padding: 2rem; }
+        }
+    </style>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "Surya Super Speciality Hospital",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-6436-358007",
+          "contactType": "emergency",
+          "areaServed": "Sahibganj"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-92641-97984",
+          "contactType": "appointments"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="mac-os-feel">
+
+    <!-- HEADER -->
+    <header class="glass-header">
+        <div class="header-inner">
+            <div class="header-start">
+                <a href="index.html" class="logo-group">
+                    <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="48" fill="var(--primary)"/>
+                        <path d="M50 25 V 75 M 25 50 H 75" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Surya<span class="logo-highlight">Hospital</span></span>
+                </a>
+            </div>
+            <nav class="header-center" id="desktop-nav">
+                <ul class="nav-pills">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Specialists</a></li>
+                    <li><a href="ivf-myths-facts.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-end">
+                <button class="icon-btn tool-btn" id="lang-toggle"><span class="material-symbols-rounded">translate</span><span class="lang-code">HI</span></button>
+                <button class="icon-btn tool-btn" id="theme-toggle">
+                    <span class="material-symbols-rounded theme-icon-light">light_mode</span>
+                    <span class="material-symbols-rounded theme-icon-dark" style="display:none;">dark_mode</span>
+                </button>
+                <a href="tel:06436358007" class="btn-glass-emergency"><span class="material-symbols-rounded pulse">emergency</span><span class="desktop-only">06436-358007</span></a>
+                <button class="mobile-toggle"><span class="bar"></span><span class="bar"></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-close">&times;</button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Find a Specialist</a></li>
+            <li><a href="ivf-myths-facts.html">Health Blog</a></li>
+            <li><a href="contact.html" class="active">Contact & Map</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <a href="tel:06436358007" class="btn-primary full-width">Call Emergency</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="page-header">
+            <div class="container">
+                <span class="badge-capsule">24/7 Availability</span>
+                <h1 class="hero-title">Get in <span class="text-gradient">Touch</span></h1>
+                <p class="hero-desc max-w-lg">
+                    We are ready to assist you. Reach out for appointments, inquiries, or visit our facility.
+                </p>
+            </div>
+        </section>
+
+        <!-- Quick Contact Grid -->
+        <section class="section">
+            <div class="container contact-cards">
+                <!-- Emergency -->
+                <div class="contact-card emergency">
+                    <div class="icon-circle"><span class="material-symbols-rounded">emergency</span></div>
+                    <h3>Emergency & Trauma</h3>
+                    <a href="tel:06436358007">06436-358007</a>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Available 24/7</p>
+                </div>
+
+                <!-- Appointments -->
+                <div class="contact-card">
+                    <div class="icon-circle"><span class="material-symbols-rounded">calendar_month</span></div>
+                    <h3>Appointments</h3>
+                    <a href="tel:+919264197984">+91 92641 97984</a>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Mon - Sun</p>
+                </div>
+
+                <!-- Address -->
+                <div class="contact-card">
+                    <div class="icon-circle"><span class="material-symbols-rounded">location_on</span></div>
+                    <h3>Location</h3>
+                    <p>S.B, JN Roy Rd, Sahibganj,<br>Jharkhand 816109</p>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card">
+                    <div class="icon-circle"><span class="material-symbols-rounded">mail</span></div>
+                    <h3>Email Us</h3>
+                    <a href="mailto:info@suryahospitalsahibganj.com">info@suryahospitalsahibganj.com</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map & Form Section -->
+        <section class="section" style="padding-bottom: 5rem;">
+            <div class="container">
+                <div class="contact-split">
+                    <!-- 1. Google Map -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.838421443981!2d87.6288862153835!3d25.24613508392211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fa98b97048347d%3A0xb87e74d0001118c1!2sSURYA%20SUPER%20SPECIALITY%20HOSPITAL!5e0!3m2!1sen!2sin!4v1668523038921!5m2!1sen!2sin" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Location of Surya Super Speciality Hospital on Google Maps">
+                        </iframe>
+                    </div>
+
+                    <!-- 2. Appointment Form -->
+                    <div class="form-container">
+                        <h2 style="margin-bottom: 0.5rem;">Send a Message</h2>
+                        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Fill out the form below to request a call back.</p>
+                        
+                        <form onsubmit="event.preventDefault(); alert('Thank you! This is a demo form. Please call us directly.');">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="e.g. Rahul Singh" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="e.g. 98765 43210" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message / Department</label>
+                                <textarea id="message" class="form-input" placeholder="How can we help you?"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary full-width">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <strong class="footer-logo">Surya Hospital</strong>
+                <p>S.B, JN Roy Rd, Sahibganj, Jharkhand 816109</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="ivf-myths-facts.html" style="color: var(--primary);">Health Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <a href="tel:06436358007">06436-358007</a>
+                <a href="mailto:info@suryahospitalsahibganj.com">info@suryahospitalsahibganj.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Surya Super Speciality Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
