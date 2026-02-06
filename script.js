@@ -3,11 +3,11 @@
  * SURYA SUPER SPECIALITY HOSPITAL - CORE JAVASCRIPT
  * ===================================================================
  * A production-grade script handling:
- * 1. Smart Glass Header (Scroll Detection)
+ * 1. Smart Glass Header (Throttled Scroll Detection)
  * 2. Dark/Light Theme Engine with Persistence
  * 3. Off-Canvas Mobile Navigation
- * 4. Precision Smooth Scrolling (Compensates for fixed header)
- * 5. "Apple-style" Reveal Animations (Expanded for Blog/Wiki)
+ * 4. Precision Smooth Scrolling
+ * 5. "Apple-style" Reveal Animations
  * 6. Desktop "Drag-to-Scroll" for Doctor Cards
  * ===================================================================
  */
@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         themeIconDark: document.querySelector('.theme-icon-dark'),
         scrollContainer: document.querySelector('.doctor-scroll-snap'),
         scrollIndicator: document.querySelector('.scroll-down-indicator'),
-        // Expanded selectors to include Blog, Authors, and Article elements
+        // Comprehensive selector list for animations across all pages
         reveals: document.querySelectorAll(
             '.hero-content, .image-card-glass, .stat-item, .bento-card, .doctor-profile-card, ' + 
-            '.section-heading, .blog-card, .article-content, .author-card, .myth-fact-container'
+            '.section-heading, .blog-card, .article-content, .author-card, .myth-fact-container, .dept-card, .diag-item'
         )
     };
 
@@ -124,12 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (shouldOpen) {
             DOM.mobileMenu.classList.add('active');
             DOM.overlay.classList.add('active');
-            DOM.body.style.overflow = 'hidden';
+            DOM.body.style.overflow = 'hidden'; // Lock scroll
             DOM.mobileToggle.setAttribute('aria-expanded', 'true');
         } else {
             DOM.mobileMenu.classList.remove('active');
             DOM.overlay.classList.remove('active');
-            DOM.body.style.overflow = '';
+            DOM.body.style.overflow = ''; // Unlock scroll
             DOM.mobileToggle.setAttribute('aria-expanded', 'false');
         }
     };
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===================================================================
-       4. SCROLL EFFECTS
+       4. SCROLL LOGIC (Throttled for Performance)
        =================================================================== */
     const handleScroll = () => {
         const scrollY = window.scrollY;
@@ -170,7 +170,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const highlightNav = () => {
+        // Only run on larger screens and if we have scroll-spy sections (Home Page only)
+        if (window.innerWidth <= 768) return;
+        
+        const sections = document.querySelectorAll('section[id]');
+        if (sections.length === 0) return; // Exit if no sections to spy on
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        let currentId = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= (sectionTop - (window.innerHeight / 3))) {
+                currentId = section.getAttribute('id');
+            }
+        });
+
+        if (currentId) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) { // Only toggle hash links
+                    link.classList.remove('active');
+                    if (href === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }
+    };
+
+    // --- THROTTLING ENGINE ---
+    // Prevents "Forced Reflow" by limiting execution to animation frames
+    let isScrolling = false;
+
+    const onScroll = () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                handleScroll();
+                highlightNav();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     /* ===================================================================
        5. REVEAL ANIMATIONS
@@ -198,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===================================================================
-       6. DRAG-TO-SCROLL (Doctors)
+       6. DRAG-TO-SCROLL (Desktop UX)
        =================================================================== */
     if (DOM.scrollContainer) {
         let isDown = false;
@@ -233,49 +278,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===================================================================
-       7. ACTIVE LINK HIGHLIGHTER (Safe for Subpages)
-       =================================================================== */
-    const highlightNav = () => {
-        // Only run on larger screens and if we have scroll-spy sections
-        if (window.innerWidth <= 768) return;
-        
-        const sections = document.querySelectorAll('section[id]');
-        // If no ID sections exist (e.g. on blog page), exit to preserve static active state
-        if (sections.length === 0) return;
-
-        const navLinks = document.querySelectorAll('.nav-link');
-        let currentId = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= (sectionTop - (window.innerHeight / 3))) {
-                currentId = section.getAttribute('id');
-            }
-        });
-
-        if (currentId) {
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                // Only modify hash links that match the current page structure
-                if (href.startsWith('#')) {
-                    link.classList.remove('active');
-                    if (href === '#' + currentId) {
-                        link.classList.add('active');
-                    }
-                }
-            });
-        }
-    };
-    window.addEventListener('scroll', highlightNav, { passive: true });
-
-    /* ===================================================================
-       8. INITIALIZATION
+       7. INITIALIZATION
        =================================================================== */
     const yearEl = document.querySelector('#current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     initTheme();
-    handleScroll();
     
+    // Only trigger scroll logic if we are NOT at the top
+    // This prevents the JS from forcing a repaint on load if the user is at 0px
+    if (window.scrollY > 0) {
+        handleScroll();
+    } else {
+        // Ensure header is clean if at top
+        if (DOM.header) DOM.header.classList.remove('scrolled');
+    }
+    
+    // Safety: Remove preload class if inline script missed it
+    setTimeout(() => {
+        if (document.body.classList.contains('preload')) {
+            document.body.classList.remove('preload');
+        }
+    }, 100);
+
     console.log('Surya Hospital Site: System Active');
 });
