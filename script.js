@@ -2,13 +2,13 @@
  * ===================================================================
  * SURYA SUPER SPECIALITY HOSPITAL - CORE JAVASCRIPT
  * ===================================================================
- * A portfolio-quality script handling:
+ * A production-grade script handling:
  * 1. Smart Glass Header (Scroll Detection)
  * 2. Dark/Light Theme Engine with Persistence
  * 3. Off-Canvas Mobile Navigation
- * 4. Language Toggle (English <-> Hindi Subdirectory)
- * 5. "Apple-style" Reveal Animations
- * 6. Desktop "Drag-to-Scroll" for Horizontal Lists
+ * 4. Precision Smooth Scrolling (Compensates for fixed header)
+ * 5. "Apple-style" Reveal Animations (Expanded for Blog/Wiki)
+ * 6. Desktop "Drag-to-Scroll" for Doctor Cards
  * ===================================================================
  */
 
@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURATION ---
     const CONFIG = {
         scrollThreshold: 20,    // px to scroll before header changes
+        headerOffset: 90,       // px offset for smooth scrolling
         animThreshold: 0.15,    // Intersection Observer threshold
-        dragSpeed: 2            // Multiplier for desktop drag scrolling
+        dragSpeed: 2            // Multiplier for drag scrolling
     };
 
     // --- DOM ELEMENTS ---
@@ -34,21 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
         themeBtn: document.querySelector('#theme-toggle'),
         themeIconLight: document.querySelector('.theme-icon-light'),
         themeIconDark: document.querySelector('.theme-icon-dark'),
-        langBtn: document.querySelector('#lang-toggle'),
-        langText: document.querySelector('.lang-code'),
         scrollContainer: document.querySelector('.doctor-scroll-snap'),
-        reveals: document.querySelectorAll('.hero-content, .image-card-glass, .stat-item, .bento-card, .doctor-profile-card, .section-heading, .blog-content')
+        scrollIndicator: document.querySelector('.scroll-down-indicator'),
+        // Expanded selectors to include Blog, Authors, and Article elements
+        reveals: document.querySelectorAll(
+            '.hero-content, .image-card-glass, .stat-item, .bento-card, .doctor-profile-card, ' + 
+            '.section-heading, .blog-card, .article-content, .author-card, .myth-fact-container'
+        )
     };
 
     /* ===================================================================
        1. THEME ENGINE (Dark / Light Mode)
        =================================================================== */
     const initTheme = () => {
-        // Check LocalStorage or System Preference
         const savedTheme = localStorage.getItem('theme');
         const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         const currentTheme = savedTheme || systemPref;
-
         applyTheme(currentTheme);
     };
 
@@ -75,9 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const current = DOM.html.getAttribute('data-theme');
             const next = current === 'dark' ? 'light' : 'dark';
             
-            // Subtle rotation animation for the button
+            // Animation for button
             DOM.themeBtn.style.transform = 'rotate(180deg)';
-            DOM.themeBtn.style.transition = 'transform 0.3s ease';
             setTimeout(() => DOM.themeBtn.style.transform = 'rotate(0deg)', 300);
             
             applyTheme(next);
@@ -85,36 +86,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ===================================================================
-       2. LANGUAGE TOGGLE (Folder Redirection Logic)
+       2. PRECISION SMOOTH SCROLL
        =================================================================== */
-    if (DOM.langBtn && DOM.langText) {
-        // Detect if we are in the Hindi folder
-        const currentPath = window.location.pathname;
-        const isHindi = currentPath.includes('/hi/');
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-        // Set Button Text: If in Hindi, button says "EN" (Switch to English)
-        DOM.langText.textContent = isHindi ? 'EN' : 'HI';
-
-        DOM.langBtn.addEventListener('click', () => {
-            if (isHindi) {
-                // SWITCH TO ENGLISH: Remove '/hi/' from path
-                // Example: /hi/doctors.html -> /doctors.html
-                const newPath = currentPath.replace('/hi', '');
-                window.location.href = newPath || '/'; 
-            } else {
-                // SWITCH TO HINDI: Add '/hi' to path
-                // Handle root path edge case (e.g., suryahospital.com/)
-                let pathSegment = currentPath;
-                if (pathSegment === '/' || pathSegment === '') {
-                    pathSegment = '/index.html';
-                }
-                // Check if path starts with slash to prevent double slash errors
-                if (!pathSegment.startsWith('/')) pathSegment = '/' + pathSegment;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
                 
-                window.location.href = '/hi' + pathSegment;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - CONFIG.headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                if (DOM.mobileMenu && DOM.mobileMenu.classList.contains('active')) {
+                    toggleMenu(true);
+                }
             }
         });
-    }
+    });
 
     /* ===================================================================
        3. NAVIGATION (Mobile Off-Canvas)
@@ -128,12 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (shouldOpen) {
             DOM.mobileMenu.classList.add('active');
             DOM.overlay.classList.add('active');
-            DOM.body.style.overflow = 'hidden'; // Lock scroll
+            DOM.body.style.overflow = 'hidden';
             DOM.mobileToggle.setAttribute('aria-expanded', 'true');
         } else {
             DOM.mobileMenu.classList.remove('active');
             DOM.overlay.classList.remove('active');
-            DOM.body.style.overflow = ''; // Unlock scroll
+            DOM.body.style.overflow = '';
             DOM.mobileToggle.setAttribute('aria-expanded', 'false');
         }
     };
@@ -142,12 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (DOM.mobileClose) DOM.mobileClose.addEventListener('click', () => toggleMenu(true));
     if (DOM.overlay) DOM.overlay.addEventListener('click', () => toggleMenu(true));
 
-    // Close menu when clicking a link inside it
-    document.querySelectorAll('.mobile-links a').forEach(link => {
-        link.addEventListener('click', () => toggleMenu(true));
-    });
-
-    // Escape key closes menu
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && DOM.mobileMenu && DOM.mobileMenu.classList.contains('active')) {
             toggleMenu(true);
@@ -155,10 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===================================================================
-       4. SCROLL EFFECTS (Glass Header)
+       4. SCROLL EFFECTS
        =================================================================== */
     const handleScroll = () => {
         const scrollY = window.scrollY;
+        
+        // Glass Header Transition
         if (DOM.header) {
             if (scrollY > CONFIG.scrollThreshold) {
                 DOM.header.classList.add('scrolled');
@@ -166,14 +158,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 DOM.header.classList.remove('scrolled');
             }
         }
+
+        // Hide "Scroll Down" Indicator
+        if (DOM.scrollIndicator) {
+            if (scrollY > 100) {
+                DOM.scrollIndicator.style.opacity = '0';
+                DOM.scrollIndicator.style.transition = 'opacity 0.5s ease';
+            } else {
+                DOM.scrollIndicator.style.opacity = '0.8';
+            }
+        }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     /* ===================================================================
-       5. REVEAL ANIMATIONS (Intersection Observer)
+       5. REVEAL ANIMATIONS
        =================================================================== */
-    // Inject dynamic styles for animation classes
     const style = document.createElement('style');
     style.innerHTML = `
         .reveal-hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: opacity, transform; }
@@ -186,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('reveal-visible');
                 entry.target.classList.remove('reveal-hidden');
-                observer.unobserve(entry.target); // Animate only once
+                observer.unobserve(entry.target); 
             }
         });
     }, { rootMargin: '0px 0px -50px 0px', threshold: CONFIG.animThreshold });
@@ -197,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===================================================================
-       6. DRAG-TO-SCROLL (Desktop UX for Doctor Cards)
+       6. DRAG-TO-SCROLL (Doctors)
        =================================================================== */
     if (DOM.scrollContainer) {
         let isDown = false;
@@ -209,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             DOM.scrollContainer.style.cursor = 'grabbing';
             startX = e.pageX - DOM.scrollContainer.offsetLeft;
             scrollLeft = DOM.scrollContainer.scrollLeft;
+            e.preventDefault();
         });
 
         const stopDrag = () => {
@@ -227,46 +229,53 @@ document.addEventListener('DOMContentLoaded', () => {
             DOM.scrollContainer.scrollLeft = scrollLeft - walk;
         });
         
-        // Initial cursor style
         DOM.scrollContainer.style.cursor = 'grab';
     }
 
     /* ===================================================================
-       7. UTILITIES & INITIALIZATION
+       7. ACTIVE LINK HIGHLIGHTER (Safe for Subpages)
        =================================================================== */
-    
-    // Auto-update Footer Year
-    const yearEl = document.querySelector('#current-year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Active Link Highlighter
     const highlightNav = () => {
-        if (window.innerWidth <= 768) return; // Desktop only
+        // Only run on larger screens and if we have scroll-spy sections
+        if (window.innerWidth <= 768) return;
         
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
+        // If no ID sections exist (e.g. on blog page), exit to preserve static active state
+        if (sections.length === 0) return;
 
+        const navLinks = document.querySelectorAll('.nav-link');
         let currentId = '';
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (window.scrollY >= (sectionTop - 150)) {
+            if (window.scrollY >= (sectionTop - (window.innerHeight / 3))) {
                 currentId = section.getAttribute('id');
             }
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(currentId) && currentId !== '') {
-                link.classList.add('active');
-            }
-        });
+        if (currentId) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                // Only modify hash links that match the current page structure
+                if (href.startsWith('#')) {
+                    link.classList.remove('active');
+                    if (href === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }
     };
-
     window.addEventListener('scroll', highlightNav, { passive: true });
 
-    // Initialize System
+    /* ===================================================================
+       8. INITIALIZATION
+       =================================================================== */
+    const yearEl = document.querySelector('#current-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     initTheme();
     handleScroll();
     
-    console.log('Surya Hospital Site: Initialized successfully.');
+    console.log('Surya Hospital Site: System Active');
 });

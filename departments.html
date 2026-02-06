@@ -4,26 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO -->
     <title>Departments & Services | Surya Super Speciality Hospital</title>
     <meta name="description" content="Explore our Centres of Excellence: General Surgery, Urology, IVF, Orthopaedics, NICU, Smart ICU, and Advanced Diagnostics (CT Scan, X-Ray).">
-    <meta name="keywords" content="General Surgery Sahibganj, Dialysis Center, ICU Facilities, NICU, IVF Treatment, CT Scan Sahibganj, Orthopedics">
+    <meta name="keywords" content="General Surgery Sahibganj, Dialysis Center, ICU Facilities, NICU, IVF Treatment, CT Scan Sahibganj, Orthopedics, Trauma Care">
     <link rel="canonical" href="https://suryahospitalsahibganj.com/departments.html">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="World-Class Medical Departments | Surya Hospital">
     <meta property="og:description" content="From advanced Laparoscopic Surgery to 24/7 Trauma Care. See our full range of medical services.">
     <meta property="og:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
 
-    <!-- Favicon & Styles -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9500'/%3E%3Cpath d='M50,25 v50 M25,50 h50' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
 
-    <!-- FOUC Fix -->
     <script>
         (function() {
             try {
@@ -38,14 +32,30 @@
         })();
     </script>
 
-    <!-- Page Specific Styles -->
     <style>
         .dept-hero {
             padding-top: calc(var(--header-height) + 4rem);
-            padding-bottom: 3rem;
+            padding-bottom: 4rem;
             background: var(--bg-surface-secondary);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Breadcrumbs */
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--bg-surface);
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-light);
+        }
+        .breadcrumb a { color: var(--text-main); font-weight: 500; }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb span { opacity: 0.5; margin: 0 0.5rem; }
 
         .category-title {
             font-size: 1.75rem;
@@ -54,6 +64,7 @@
             align-items: center;
             gap: 1rem;
             color: var(--text-main);
+            margin-top: 2rem;
         }
         .category-title::after {
             content: '';
@@ -74,14 +85,15 @@
             border: 1px solid var(--border-light);
             border-radius: var(--radius-lg);
             padding: 2rem;
-            transition: 0.3s var(--ease-out-back);
+            transition: all 0.3s var(--ease-out-back);
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
         }
 
         .dept-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow);
             border-color: var(--primary);
         }
@@ -90,17 +102,18 @@
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, var(--bg-surface-secondary) 0%, var(--bg-body) 100%);
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
             color: var(--primary);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5);
         }
         .dept-icon-box span { font-size: 32px; }
 
         .dept-card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
-        .dept-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1; }
+        .dept-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.6; }
 
         .feature-list {
             margin-top: auto;
@@ -108,52 +121,73 @@
             padding-top: 1rem;
         }
         .feature-list li {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
             color: var(--text-main);
+            font-weight: 500;
         }
-        .feature-list span { color: var(--primary); font-size: 1rem; }
+        .feature-list span { color: var(--primary); font-size: 1.1rem; }
+
+        /* Emergency Badge */
+        .badge-247 {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: #FF3B30;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3);
+        }
 
         /* Diagnostics List Style */
         .diag-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
         }
         .diag-item {
             background: var(--bg-surface);
-            padding: 1.5rem;
+            padding: 2rem 1.5rem;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-light);
             text-align: center;
             transition: 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
-        .diag-item:hover { border-color: var(--primary); background: var(--bg-surface-secondary); }
-        .diag-item strong { display: block; margin-top: 0.5rem; color: var(--text-main); }
-        .diag-icon { font-size: 2rem; color: var(--text-secondary); }
+        .diag-item:hover { border-color: var(--primary); background: var(--bg-surface-secondary); transform: scale(1.02); }
+        .diag-item strong { display: block; color: var(--text-main); font-size: 1.1rem; }
+        .diag-icon { font-size: 2.5rem; color: var(--primary); opacity: 0.8; }
+        
+        /* Reveal Animation Classes */
+        .reveal-hidden { opacity: 0; transform: translateY(30px); }
+        .reveal-visible { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
     </style>
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MedicalClinic",
       "name": "Surya Super Speciality Hospital Departments",
       "department": [
-        { "@type": "MedicalClinic", "name": "General Surgery" },
-        { "@type": "MedicalClinic", "name": "Urology" },
-        { "@type": "MedicalClinic", "name": "Obstetrics & Gynaecology" },
-        { "@type": "MedicalClinic", "name": "Orthopaedics" },
-        { "@type": "EmergencyService", "name": "Smart ICU & NICU" }
+        { "@type": "MedicalClinic", "name": "General Surgery", "description": "Laparoscopic & Open Surgery" },
+        { "@type": "MedicalClinic", "name": "Urology", "description": "Kidney Stone & Prostate Care" },
+        { "@type": "MedicalClinic", "name": "Gynaecology & IVF", "description": "Maternity & Fertility Treatment" },
+        { "@type": "MedicalClinic", "name": "Orthopaedics", "description": "Joint Replacement & Trauma" },
+        { "@type": "EmergencyService", "name": "Smart ICU & NICU", "description": "24/7 Critical Care" }
       ]
     }
     </script>
 </head>
 <body class="mac-os-feel">
 
-    <!-- HEADER -->
     <header class="glass-header">
         <div class="header-inner">
             <div class="header-start">
@@ -171,12 +205,12 @@
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="departments.html" class="nav-link active">Departments</a></li>
                     <li><a href="doctors.html" class="nav-link">Specialists</a></li>
-                    <li><a href="ivf-myths-facts.html" class="nav-link">Blog</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-end">
-                <button class="icon-btn tool-btn" id="lang-toggle"><span class="material-symbols-rounded">translate</span><span class="lang-code">HI</span></button>
+                <button class="icon-btn tool-btn" id="lang-toggle" style="display:none;">HI</button>
                 <button class="icon-btn tool-btn" id="theme-toggle">
                     <span class="material-symbols-rounded theme-icon-light">light_mode</span>
                     <span class="material-symbols-rounded theme-icon-dark" style="display:none;">dark_mode</span>
@@ -187,7 +221,6 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer -->
     <div class="mobile-menu-overlay"></div>
     <nav class="mobile-menu">
         <div class="mobile-menu-header">
@@ -199,17 +232,21 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="departments.html" class="active">Departments</a></li>
             <li><a href="doctors.html">Find a Specialist</a></li>
-            <li><a href="ivf-myths-facts.html">Health Blog</a></li>
+            <li><a href="blog.html">Health Blog</a></li>
             <li><a href="contact.html">Contact & Map</a></li>
         </ul>
+        <div class="mobile-menu-footer">
+            <a href="tel:06436358007" class="btn-primary full-width">Call Emergency</a>
+        </div>
     </nav>
 
     <main>
-        <!-- Hero -->
         <section class="dept-hero">
             <div class="container">
-                <span class="badge-capsule">Centres of Excellence</span>
-                <h1 class="hero-title">Our <span class="text-gradient">Departments</span></h1>
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> Departments
+                </nav>
+                <h1 class="hero-title">Centres of <span class="text-gradient">Excellence</span></h1>
                 <p class="hero-desc max-w-lg">
                     Comprehensive, multi-speciality services delivered by expert doctors, skilled nurses, and dedicated support teams.
                 </p>
@@ -219,97 +256,104 @@
         <section class="section">
             <div class="container">
                 
-                <!-- 1. Clinical Specialties -->
                 <h2 class="category-title">Clinical Specialties</h2>
                 <div class="dept-grid">
                     
-                    <!-- General Surgery -->
                     <article class="dept-card" id="surgery">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">medical_services</span></div>
                         <h3>General Surgery</h3>
                         <p>Comprehensive surgical solutions for appendicitis, hernia, gall bladder, and more. Performing both open and laparoscopic surgeries with a focus on safety and rapid recovery.</p>
                         <ul class="feature-list">
-                            <li><span class="material-symbols-rounded">check</span> Laparoscopic Procedures</li>
-                            <li><span class="material-symbols-rounded">check</span> Trauma Surgery</li>
-                            <li><span class="material-symbols-rounded">check</span> Modular OT</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Laparoscopic Procedures</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Trauma Surgery</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Modular OT</li>
                         </ul>
                     </article>
 
-                    <!-- Urology -->
                     <article class="dept-card" id="urology">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">water_drop</span></div>
                         <h3>Urology</h3>
                         <p>Advanced diagnosis and treatment for urinary tract and kidney disorders. Equipped for minimally invasive endoscopic and laparoscopic procedures ensuring reduced recovery time.</p>
                         <ul class="feature-list">
-                            <li><span class="material-symbols-rounded">check</span> Kidney Stone Removal</li>
-                            <li><span class="material-symbols-rounded">check</span> Endourology</li>
-                            <li><span class="material-symbols-rounded">check</span> Prostate Care</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Kidney Stone Removal</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Endourology</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Prostate Care</li>
                         </ul>
                     </article>
 
-                    <!-- ObGyn & IVF -->
                     <article class="dept-card" id="obgyn">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">female</span></div>
                         <h3>ObGyn & IVF</h3>
                         <p>From adolescence to old age, we provide complete women’s health services. Specializing in high-risk pregnancy management, infertility treatments, IVF, and compassionate maternity care.</p>
                         <ul class="feature-list">
-                            <li><span class="material-symbols-rounded">check</span> IVF & IUI Centre</li>
-                            <li><span class="material-symbols-rounded">check</span> High-Risk Delivery</li>
-                            <li><span class="material-symbols-rounded">check</span> Infertility Counselling</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> IVF & IUI Centre</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> High-Risk Delivery</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Infertility Counselling</li>
                         </ul>
                     </article>
 
-                    <!-- Orthopaedics -->
                     <article class="dept-card" id="ortho">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">accessibility_new</span></div>
                         <h3>Orthopaedics</h3>
                         <p>Expert care for fractures, arthritis, spine disorders, and sports injuries. The department is equipped for joint replacement surgeries and advanced trauma management.</p>
                         <ul class="feature-list">
-                            <li><span class="material-symbols-rounded">check</span> Joint Replacement</li>
-                            <li><span class="material-symbols-rounded">check</span> Spine Surgery</li>
-                            <li><span class="material-symbols-rounded">check</span> 24/7 Fracture Care</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Joint Replacement</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Spine Surgery</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> 24/7 Fracture Care</li>
                         </ul>
                     </article>
 
                 </div>
 
-                <!-- 2. Critical Care & Diagnostics -->
                 <h2 class="category-title">Critical Care & Diagnostics</h2>
                 <div class="dept-grid">
                     
-                    <!-- Smart ICU -->
                     <article class="dept-card" id="icu">
+                        <div class="badge-247">24/7 OPEN</div>
                         <div class="dept-icon-box"><span class="material-symbols-rounded">ecg_heart</span></div>
                         <h3>Smart ICU</h3>
                         <p>A next-generation intensive care facility featuring advanced ventilators, real-time monitoring systems, and digital health records, all managed by an expert critical care team.</p>
+                        <ul class="feature-list">
+                            <li><span class="material-symbols-rounded">check_circle</span> Ventilator Support</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Cardiac Monitoring</li>
+                        </ul>
                     </article>
 
-                    <!-- NICU -->
                     <article class="dept-card">
+                        <div class="badge-247">24/7 OPEN</div>
                         <div class="dept-icon-box"><span class="material-symbols-rounded">child_care</span></div>
                         <h3>NICU (Neonatal)</h3>
                         <p>Specialized unit providing critical care for premature and high-risk newborns. Combines advanced incubators, monitoring systems, and round-the-clock paediatric supervision.</p>
+                        <ul class="feature-list">
+                            <li><span class="material-symbols-rounded">check_circle</span> Incubator Care</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Phototherapy</li>
+                        </ul>
                     </article>
 
-                    <!-- Dialysis -->
                     <article class="dept-card">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">bloodtype</span></div>
                         <h3>Dialysis Unit</h3>
                         <p>Modern dialysis centre designed for safety, hygiene, and patient comfort. Equipped with advanced machines and continuous monitoring by nephrology specialists.</p>
+                        <ul class="feature-list">
+                            <li><span class="material-symbols-rounded">check_circle</span> Hemodialysis</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Safe & Sterile</li>
+                        </ul>
                     </article>
 
-                    <!-- Pathology -->
                     <article class="dept-card">
                         <div class="dept-icon-box"><span class="material-symbols-rounded">biotech</span></div>
                         <h3>Pathology Lab</h3>
                         <p>Fully automated laboratory performing a wide range of tests with unmatched accuracy. From routine investigations to advanced biochemistry for precise diagnosis.</p>
+                        <ul class="feature-list">
+                            <li><span class="material-symbols-rounded">check_circle</span> Automated Reports</li>
+                            <li><span class="material-symbols-rounded">check_circle</span> Fast Turnaround</li>
+                        </ul>
                     </article>
 
                 </div>
 
-                <!-- 3. Radiology Teaser -->
-                <div class="highlight-box" style="text-align: center;">
-                    <h3 style="margin-bottom: 2rem;">Advanced Radiology & Imaging</h3>
+                <div class="highlight-box" style="text-align: center; background: transparent; border: none; padding: 0;">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.75rem;">Advanced Radiology & Imaging</h3>
                     <div class="diag-grid">
                         <div class="diag-item">
                             <span class="material-symbols-rounded diag-icon">radiology</span>
@@ -333,7 +377,6 @@
             </div>
         </section>
 
-        <!-- CTA -->
         <section class="cta-section">
             <div class="container cta-inner">
                 <h2>Advanced Technology. Compassionate Care.</h2>
@@ -354,7 +397,7 @@
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="doctors.html">Doctors</a>
-                <a href="ivf-myths-facts.html" style="color: var(--primary);">Health Blog</a>
+                <a href="blog.html">Health Blog</a>
                 <a href="contact.html">Contact</a>
             </div>
             <div class="footer-contact">
@@ -368,5 +411,27 @@
     </footer>
 
     <script src="script.js" defer></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.dept-card, .diag-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('reveal-visible');
+                            entry.target.classList.remove('reveal-hidden');
+                        }, index * 100); // Staggered delay for grid
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('reveal-hidden');
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>

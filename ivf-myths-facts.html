@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>IVF Myths vs Facts: A Comprehensive Medical Guide | Surya Hospital</title>
+    <meta name="description" content="An evidence-based guide to IVF. Dr. Khushboo Priya debunks myths regarding success rates, health risks, and procedures with data from Indian & Global health standards.">
+    <meta name="author" content="Dr. Khushboo Priya">
+    <link rel="canonical" href="https://suryahospitalsahibganj.com/ivf-myths-facts.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Truth About IVF: A Doctor's Perspective">
+    <meta property="og:description" content="Infertility affects 1 in 6 couples globally. We separate scientific fact from social myth to help you make informed decisions.">
+    <meta property="og:image" content="https://suryahospitalsahibganj.com/assets/images/surya-social-share.png">
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9500'/%3E%3Cpath d='M50,25 v50 M25,50 h50' stroke='%23FFFFFF' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+    <script>
+        (function() {
+            try {
+                const localTheme = localStorage.getItem('theme');
+                const sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && sysTheme)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <style>
+        /* Hero Section with Parallax Feel */
+        .article-hero {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 4rem;
+            background: linear-gradient(180deg, var(--bg-surface-secondary) 0%, var(--bg-body) 100%);
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            background: var(--bg-surface);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-light);
+        }
+
+        /* 3-Column Layout: TOC | Content | Author */
+        .wiki-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /* 1. Sticky Table of Contents (Left) */
+        .wiki-toc {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            padding-right: 1rem;
+            border-right: 1px solid var(--border-light);
+        }
+        .toc-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 700; }
+        .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .toc-link { font-size: 0.95rem; color: var(--text-secondary); transition: 0.2s; text-decoration: none; border-left: 2px solid transparent; padding-left: 10px; }
+        .toc-link:hover, .toc-link.active { color: var(--primary); border-left-color: var(--primary); }
+
+        /* 2. Main Content (Center) - Serif for Reading */
+        .article-content {
+            font-family: 'Merriweather', serif; /* High-readability serif */
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-main);
+        }
+        
+        .article-content h2 { 
+            font-family: -apple-system, sans-serif; /* Sans headings */
+            margin-top: 3rem; margin-bottom: 1rem; 
+            color: var(--text-main); font-size: 1.8rem; letter-spacing: -0.02em; 
+            padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light);
+        }
+        .article-content p { margin-bottom: 1.5rem; }
+        .lead-paragraph { font-size: 1.3rem; line-height: 1.6; color: var(--text-main); font-weight: 300; margin-bottom: 2rem; }
+
+        /* Myth/Fact Card Design */
+        .myth-fact-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .myth-header {
+            background: #FFEBEE; /* Soft Red */
+            color: #C62828;
+            padding: 1rem 2rem;
+            font-family: -apple-system, sans-serif;
+            font-weight: 700;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        
+        .fact-body {
+            padding: 2rem;
+            background: var(--bg-surface);
+            border-left: 4px solid #4CAF50; /* Green Accent */
+        }
+        
+        .fact-label {
+            display: block;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 3. Sticky Author Sidebar (Right) */
+        .wiki-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .author-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .author-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary); }
+        
+        .author-link { text-decoration: none; color: inherit; display: block; }
+        .author-link:hover .author-name { color: var(--primary); }
+
+        .author-img {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--bg-surface-secondary);
+        }
+        .author-name { transition: color 0.2s ease; }
+
+        /* Citation Tooltip */
+        .citation {
+            font-size: 0.75rem;
+            vertical-align: super;
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1200px) {
+            .wiki-layout { grid-template-columns: 1fr 300px; }
+            .wiki-toc { display: none; } /* Hide TOC on medium screens */
+        }
+        @media (max-width: 900px) {
+            .wiki-layout { grid-template-columns: 1fr; padding: 2rem 1rem; }
+            .wiki-sidebar { position: static; margin-top: 3rem; }
+            .article-content { font-size: 1.05rem; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "IVF Myths vs Facts: A Comprehensive Guide",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Khushboo Priya",
+        "jobTitle": "Gynaecologist & IVF Specialist",
+        "affiliation": "Surya Super Speciality Hospital",
+        "url": "https://suryahospitalsahibganj.com/author-dr-khushboo.html"
+      },
+      "medicalAudience": "Patients",
+      "about": {
+        "@type": "MedicalProcedure",
+        "name": "In Vitro Fertilization"
+      },
+      "lastReviewed": "2025-02-06",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is IVF only for couples completely unable to conceive?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. IVF is recommended for various conditions like blocked tubes, PCOS, or endometriosis, and is often a scientifically established treatment option rather than just a last resort."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does IVF always lead to twins or triplets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Modern leading clinics prefer Single Embryo Transfer (SET) to ensure safer pregnancies. The goal is a healthy mother and child, not multiple births."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+<body class="mac-os-feel">
+
+    <header class="glass-header">
+        <div class="header-inner">
+            <div class="header-start">
+                <a href="index.html" class="logo-group">
+                    <svg class="logo-icon" width="36" height="36" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="48" fill="var(--primary)"/>
+                        <path d="M50 25 V 75 M 25 50 H 75" stroke="white" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">Surya<span class="logo-highlight">Hospital</span></span>
+                </a>
+            </div>
+            <nav class="header-center" id="desktop-nav">
+                <ul class="nav-pills">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li><a href="doctors.html" class="nav-link">Specialists</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-end">
+                <button class="icon-btn tool-btn" id="lang-toggle" style="display:none;">HI</button>
+                <button class="icon-btn tool-btn" id="theme-toggle">
+                    <span class="material-symbols-rounded theme-icon-light">light_mode</span>
+                    <span class="material-symbols-rounded theme-icon-dark" style="display:none;">dark_mode</span>
+                </button>
+                <a href="tel:06436358007" class="btn-glass-emergency"><span class="material-symbols-rounded pulse">emergency</span><span class="desktop-only">06436-358007</span></a>
+                <button class="mobile-toggle"><span class="bar"></span><span class="bar"></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay"></div>
+    <nav class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-close">×</button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Find a Specialist</a></li>
+            <li><a href="blog.html" class="active">Health Blog</a></li>
+            <li><a href="contact.html">Contact & Map</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <a href="tel:06436358007" class="btn-primary full-width">Call Emergency</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="article-hero">
+            <div class="container max-w-lg">
+                <div class="hero-meta">
+                    <span class="material-symbols-rounded" style="font-size: 1.1rem;">verified</span>
+                    Medically Reviewed by <a href="author-dr-khushboo.html" style="color: inherit; font-weight: 600; text-decoration: underline; margin-left: 4px;">Dr. Khushboo Priya</a>
+                </div>
+                <h1 class="hero-title">IVF Explained: <span class="text-gradient">Separating Facts from Fear</span></h1>
+                <p class="hero-desc">
+                    Infertility is a medical condition, not a life sentence. We clear up the confusion surrounding IVF treatment in India with evidence-based facts.
+                </p>
+            </div>
+        </section>
+
+        <div class="wiki-layout">
+            
+            <aside class="wiki-toc">
+                <div class="toc-title">Table of Contents</div>
+                <ul class="toc-list">
+                    <li><a href="#intro" class="toc-link">Understanding the Context</a></li>
+                    <li><a href="#myth1" class="toc-link">The "Last Resort" Myth</a></li>
+                    <li><a href="#myth2" class="toc-link">Success Rates</a></li>
+                    <li><a href="#myth3" class="toc-link">Health of IVF Children</a></li>
+                    <li><a href="#myth4" class="toc-link">Multiple Births</a></li>
+                    <li><a href="#myth5" class="toc-link">Pain & Recovery</a></li>
+                    <li><a href="#conclusion" class="toc-link">Conclusion</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content" id="intro">
+                <p class="lead-paragraph">
+                    In the last decade, In-Vitro Fertilisation (IVF) has transformed from a whispered topic into one of the most viable medical options for couples struggling to conceive. Yet, despite the science, misconceptions persist in many parts of India.
+                </p>
+                <p>
+                    According to the World Health Organization (WHO), infertility affects nearly 1 in 6 people globally. It is a medical condition of the reproductive system, not a flaw in character. Unfortunately, families often rely on conflicting advice from friends or unverified social media sources, leading to unnecessary anxiety.
+                </p>
+                <p>
+                    At Surya Hospital, we believe informed patients make the best decisions. Let us dismantle the five most common myths with clinical evidence.
+                </p>
+
+                <div id="myth1"></div> <div class="myth-fact-container">
+                    <div class="myth-header">
+                        <span class="material-symbols-rounded">block</span> MYTH: "IVF is only a last resort."
+                    </div>
+                    <div class="fact-body">
+                        <span class="fact-label">The Medical Fact</span>
+                        <p>
+                            In reality, infertility has diverse causes. While doctors often begin with simpler treatments like ovulation induction or IUI (Intrauterine Insemination), IVF may be the <strong>first-line recommendation</strong> for specific conditions such as:
+                        </p>
+                        <ul>
+                            <li>Severe Tubal Blockage (where eggs cannot travel to the uterus).</li>
+                            <li>Severe Male Factor Infertility (low sperm count/motility).</li>
+                            <li>Advanced Maternal Age (where time is a critical factor).</li>
+                            <li>Endometriosis.</li>
+                        </ul>
+                        <p>Viewing IVF as a "last stage" often delays necessary treatment, reducing the chances of success as the couple ages.</p>
+                    </div>
+                </div>
+
+                <h2 id="myth2">Does IVF Guarantee Pregnancy?</h2>
+                <p>
+                    A widespread assumption is that IVF is a "magic bullet" that guarantees pregnancy immediately. While IVF significantly increases conception chances compared to natural attempts (especially in sub-fertile couples), it is a biological process, not a transaction.
+                </p>
+                <p>
+                    Success rates vary largely by the woman's age. For women under 35, success rates are high, but they naturally decline with age. Doctors design specific protocols—such as ICSI or Blastocyst Culture—to maximize these odds. The key is to have realistic expectations and view it as a journey that might take more than one cycle.
+                </p>
+
+                <h2 id="myth3">Are IVF Babies "Artificial"?</h2>
+                <div class="myth-fact-container">
+                    <div class="myth-header">
+                        <span class="material-symbols-rounded">block</span> MYTH: "IVF babies are weaker or prone to illness."
+                    </div>
+                    <div class="fact-body">
+                        <span class="fact-label">The Scientific Consensus</span>
+                        <p>
+                            This is perhaps the most emotional myth. <strong>IVF babies are just as healthy as naturally conceived children.</strong> The term "In Vitro" simply means "in glass" (the petri dish), where fertilization happens. Once the embryo is transferred back to the uterus, the pregnancy progresses naturally.
+                        </p>
+                        <p>
+                            In fact, with modern techniques like PGT (Pre-implantation Genetic Testing), specialists can screen embryos for chromosomal abnormalities before transfer, potentially <em>reducing</em> the risk of certain genetic diseases in the child.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 id="myth4">The Truth About Twins & Triplets</h2>
+                <p>
+                    Many people assume IVF inevitably leads to a twin or triplet pregnancy. Historically, clinics transferred multiple embryos to increase success rates, which did lead to multiple births.
+                </p>
+                <p>
+                    However, global guidelines (including those from ASRM and ESHRE) now advocate for <strong>eSET (elective Single Embryo Transfer)</strong>. Advances in laboratory technology allow us to identify the single strongest embryo for transfer. The goal of modern fertility treatment is a <em>healthy singleton pregnancy</em>, avoiding the risks associated with multiple births for both mother and baby.
+                </p>
+
+                <h2 id="myth5">Pain & Recovery</h2>
+                <div class="myth-fact-container">
+                    <div class="myth-header">
+                        <span class="material-symbols-rounded">block</span> MYTH: "It requires complete bed rest."
+                    </div>
+                    <div class="fact-body">
+                        <span class="fact-label">Lifestyle Fact</span>
+                        <p>
+                            The process is far less intimidating than rumors suggest.
+                        </p>
+                        <ul>
+                            <li><strong>Injections:</strong> Modern hormonal injections are subcutaneous (like insulin pens), with very fine needles causing minimal discomfort.</li>
+                            <li><strong>Egg Retrieval:</strong> This is a short procedure done under sedation/anesthesia. You sleep through it and feel no pain.</li>
+                            <li><strong>Recovery:</strong> Most women resume their daily routine the next day. "Bed rest" does not improve success rates; in fact, gentle blood flow from normal activity is beneficial.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 id="conclusion">Conclusion</h2>
+                <p>
+                    IVF is a medical procedure rooted in science, designed to bypass biological hurdles. If you have been trying to conceive for more than 12 months (or 6 months if over age 35), consulting a specialist is not an admission of defeat—it is a proactive step towards building your family.
+                </p>
+
+            </article>
+
+            <aside class="wiki-sidebar">
+                <div class="author-card">
+                    <a href="author-dr-khushboo.html" class="author-link">
+                        <picture>
+                            <source srcset="./assets/images/dr-khusboo.webp" type="image/webp">
+                            <img src="./assets/images/dr-khusboo.jpg" alt="Dr. Khushboo Priya" class="author-img" loading="lazy">
+                        </picture>
+                        <h4 class="author-name">Dr. Khushboo Priya</h4>
+                    </a>
+                    <span class="author-role">IVF Specialist & Gynaecologist</span>
+                    <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 1rem 0;">
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                        MBBS (Hons.), MS (ObGyn). Dedicated to ethical fertility treatments and women's health advocacy in Jharkhand.
+                    </p>
+                    <a href="contact.html" class="btn-primary full-width">Book Consultation</a>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <strong class="footer-logo">Surya Hospital</strong>
+                <p>S.B, JN Roy Rd, Sahibganj, Jharkhand 816109</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="blog.html">Health Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <a href="tel:06436358007">06436-358007</a>
+                <a href="mailto:info@suryahospitalsahibganj.com">info@suryahospitalsahibganj.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Surya Super Speciality Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
